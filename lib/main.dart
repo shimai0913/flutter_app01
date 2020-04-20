@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
           appBar: Header(),
           // Text の位置を指定
           body: Center(
-            child: Text('Hello World!!!!!!'),
+            child: Text('Hello World!###'),
           ),
           bottomNavigationBar: Footer() // <- Footer Widget (Footer Instance)を指定
           ),
