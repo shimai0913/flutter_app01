@@ -1,25 +1,18 @@
 import 'package:flutter/material.dart';
-import 'header.dart'; // <- header.dart を インポート
-import 'footer.dart'; // footer.dart をインポート
-// import 'package：english_words / english_words.dart';
+import 'root.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(App());
 
-class MyApp extends StatelessWidget {
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // title: 'Welcome flutter',
-      // Debug の 表示を OFF
+      title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-          appBar: Header(),
-          // Text の位置を指定
-          body: Center(
-            child: Text('Hello World!###'),
-          ),
-          bottomNavigationBar: Footer() // <- Footer Widget (Footer Instance)を指定
-          ),
+      theme: ThemeData(
+        primaryColor: Colors.blueGrey[900],
+      ),
+      home: RootWidget(),
     );
   }
 }

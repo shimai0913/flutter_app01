@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
+class News extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("ニュースヘッダー"), // <- (※2)
+        title: Text("ニュースヘッダー"),
       ),
-      body: Center(child: Text("ニュースbody") // <- (※3)
-          ),
+      body: Center(
+        child: Text("ニュースbody"),
+      ),
     );
   }
 }

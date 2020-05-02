@@ -5,10 +5,11 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("ホームヘッダー"), // <- (※2)
+        title: Text("ホームヘッダー"),
       ),
-      body: Center(child: Text("ホームbody") // <- (※3)
-          ),
+      body: Center(
+        child: Text("ホームbody"),
+      ),
     );
   }
 }

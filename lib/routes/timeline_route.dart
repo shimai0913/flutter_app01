@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
+class TimeLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("タイムラインヘッダー"), // <- (※2)
+        title: Text("タイムラインヘッダー"),
       ),
-      body: Center(child: Text("タイムラインbody") // <- (※3)
-          ),
+      body: Center(
+        child: Text("タイムラインbody"),
+      ),
     );
   }
 }

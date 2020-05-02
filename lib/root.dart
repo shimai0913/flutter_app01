@@ -1,17 +1,25 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Footer extends StatefulWidget {
-  const Footer();
+// == 作成したWidget をインポート ==================
+import 'routes/home_route.dart';
+import 'routes/talk_route.dart';
+import 'routes/timeline_route.dart';
+import 'routes/wallet_route.dart';
+import 'routes/news_route.dart';
+// =============================================
+
+class RootWidget extends StatefulWidget {
+  RootWidget({Key key}) : super(key: key);
 
   @override
-  _Footer createState() => _Footer();
+  _RootWidgetState createState() => _RootWidgetState();
 }
 
-class _Footer extends State<Footer> {
+class _RootWidgetState extends State<RootWidget> {
   int _selectedIndex = 0;
   final _bottomNavigationBarItems = <BottomNavigationBarItem>[];
 
-  // アイコン情報
   static const _footerIcons = [
     Icons.home,
     Icons.textsms,
@@ -20,7 +28,6 @@ class _Footer extends State<Footer> {
     Icons.work,
   ];
 
-  // アイコン文字列
   static const _footerItemNames = [
     'ホーム',
     'トーク',
@@ -28,6 +35,16 @@ class _Footer extends State<Footer> {
     'ニュース',
     'ウォレット',
   ];
+
+  // === 追加部分 ===
+  var _routes = [
+    Home(),
+    Talk(),
+    TimeLine(),
+    News(),
+    Wallet(),
+  ];
+  // ==============
 
   @override
   void initState() {
@@ -53,7 +70,6 @@ class _Footer extends State<Footer> {
         ));
   }
 
-  /// インデックスのアイテムをディアクティベートする
   BottomNavigationBarItem _UpdateDeactiveState(int index) {
     return BottomNavigationBarItem(
         icon: Icon(
@@ -70,7 +86,8 @@ class _Footer extends State<Footer> {
 
   void _onItemTapped(int index) {
     setState(() {
-      _bottomNavigationBarItems[_selectedIndex] = _UpdateDeactiveState(_selectedIndex);
+      _bottomNavigationBarItems[_selectedIndex] =
+          _UpdateDeactiveState(_selectedIndex);
       _bottomNavigationBarItems[index] = _UpdateActiveState(index);
       _selectedIndex = index;
     });
@@ -78,11 +95,14 @@ class _Footer extends State<Footer> {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed, // これを書かないと3つまでしか表示されない
-      items: _bottomNavigationBarItems,
-      currentIndex: _selectedIndex,
-      onTap: _onItemTapped,
+    return Scaffold(
+      body: _routes.elementAt(_selectedIndex),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed, // これを書かないと3つまでしか表示されない
+        items: _bottomNavigationBarItems,
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+      ),
     );
   }
 }
